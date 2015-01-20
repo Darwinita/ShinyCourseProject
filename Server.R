@@ -4,10 +4,8 @@
 library(shiny)
 
 shinyServer(
-        function(input, output) {
-                
+        function(input, output) {                
                 observe({
-
                 output$oid1 <- renderPrint({input$id1})
                 output$oOmega <- renderPrint({input$Omega})
                 output$oNeutralLOWER <- renderPrint({input$LOWER})
@@ -16,12 +14,11 @@ shinyServer(
                 output$oInputFile <- renderPrint({input$inputFile})
                 output$odate <- renderPrint({input$date})
 
-                inFile <- input$inputFile
-                
+                inFile <- input$inputFile                
                 if (is.null(inFile))
-                        return(NULL)
-                
+                        return(NULL)               
                 omegaVector <- as.numeric(readLines(inFile$datapath))
+                
                 cutoffomegaVector <- omegaVector[omegaVector <= input$Omega]
                 numberofgenes <-length(cutoffomegaVector)
                 numberofgenesNeg <-length(cutoffomegaVector[cutoffomegaVector < input$LOWER ])

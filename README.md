@@ -29,20 +29,21 @@ OmegaViewer
 
 Selection may differentially act on nonsynonymous (amino acid-changing; dN)
 substitutions compared to the putatively neutral synonymous (silent; dS) ones. Under the
-neutral model of evolution, synonymous and non-synonymous substitutions accumulate
+NEUTRAL model of EVOLUTION, synonymous and non-synonymous substitutions accumulate
 at the same rate (*Omega: ω ∼ 1*) . Conversely, deviations
-from this pattern evidence the action of purifying or negative selection (purges deleterious mutations
-to conserve the protein structure and function; *Omega: ω << 1*), or the action of Positive Selection
+from this pattern evidence the action of purifying or NEGATIVE SELECTION (purges deleterious mutations
+to conserve the protein structure and function; *Omega: ω << 1*), or the action of POSITIVE SELECTION
  promoting the fixation of non-synonymous mutations with advantageous fitness
 effects (*Omega: ω > 1)*. Estimation of ω therefore yields insights on the molecular evolutionary
 mechanisms of protein diversification and functional specialization. 
 
 **Description**
-I wrote the shiny application *OmegaViewer* to examine the distribution of Omega values (dN/dS) from a file containing a list of estimates of Omega values for groups of genes. I used a slider widget to select a Omega cutoff value from a range (0-999). To define the range of Omega values to classify a particular family of genes as evolving neutrally I used two input controls to enter LOWER and UPPER Omega values. An additional slider widget was used to define the number of bins used in the histogram. To upload the file containing the Omega values to be examined I created a file upload control. Once the previous values have been selected by the user a submit button sends the input data to the application. The application then returns the total number of genes below the Omega cutoff value selected, the number of genes classified as evolving under Negative, Neutral and Positive Selection, as well as an histogram representing the distribution of Omega values in hand. A omegas.list test file is provided.
+I wrote the shiny application *OmegaViewer* to examine the distribution of Omega values (dN/dS) from a file containing a list of estimates of Omega values for groups of orthologous genes. I used a slider widget to select a Omega cutoff value from a range (0-999). To define the range of Omega values to classify a particular family of genes as evolving neutrally I used two input controls to enter LOWER and UPPER Omega values (0.5-1.5). An additional slider widget was used to define the number of bins used in the histogram. To upload the file containing the Omega values to be examined I created a file upload control. Once the previous values have been selected by the user a submit button sends the input data to the application. The application then returns the total number of genes below the Omega cutoff value selected, the number of genes classified as evolving under Negative, Neutral and Positive Selection, as well as an histogram representing the distribution of Omega values in hand. A omegas.list test file is provided.
 
 **Intructions to visualize OmegaViewer**
 
 Please, click [here](https://lcarretero.shinyapps.io/ShinyCourseProject/) to launch the application.
+Find source code at [here](https://github.com/Darwinita/ShinyCourseProject).
 
 ```
 library(shiny)

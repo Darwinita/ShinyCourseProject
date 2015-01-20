@@ -9,12 +9,11 @@ shinyUI(fluidPage(
         
         sidebarPanel(
                 # 
-
-                sliderInput('Omega', 'Select cutoff omega value',value = 5, min = 0, max = 999, step = 0.5),
+                sliderInput('Omega', 'Select cutoff Omega value (range: 0-999)',value = 5, min = 0, max = 999, step = 0.5),
                 # 
-                numericInput('LOWER', "Select LOWER omega to define neutrally evolving genes",
+                numericInput('LOWER', "Select LOWER Omega value to define neutrally evolving genes (min: 0.5)",
                                   value = 0.5, min = 0.5, max = 1.5, step = 0.05),
-                numericInput('UPPER', "Select UPPER omega to define neutrally evolving genes",
+                numericInput('UPPER', "Select UPPER Omega to define neutrally evolving genes (max: 1.5)",
                              value = 1.5, min = 0.5, max = 1.5, step = 0.05),
                 # 
                 sliderInput('Bins', 'Number of bins',value = 50, min = 1, max = 100, step = 1),
@@ -23,20 +22,19 @@ shinyUI(fluidPage(
                 submitButton('Submit'),
                 dateInput("date", "Date:"),
                 helpText("The shiny application OmegaViewer examines the distribution of Omega values (dN/dS) from a file containing
-                         a list of estimates of Omega values for groups of genes. A slider widget is used to select a Omega cutoff value
+                        Omega estimates for groups of homologous genes. A slider widget is used to select a Omega cutoff value
                          from a range (0-999). To define the range of Omega values to classify a particular family of genes as
-                         evolving neutrally I used two input controls to enter LOWER and UPPER Omega values. 
+                         evolving neutrally I used two input controls to enter LOWER and UPPER Omega values (0.5-1.5). 
                          An additional slider widget was used to define the number of bins used in the histogram. 
                          To upload the file containing the Omega values to be examined I created a file upload control. 
                          Once the previous values have been selected by the user a submit button sends the input data to the application. 
                          The application then returns the total number of genes below the Omega cutoff value selected, 
                          the number of genes classified as evolving under Negative, Neutral and Positive Selection, 
                          as well as an histogram representing the distribution of Omega values in hand. 
-                         Find source code at https://github.com/.")
+                         Find source code at https://github.com/Darwinita/ShinyCourseProject.")
         ),
         
         mainPanel(
-                #textOutput('documentationText'),
                 h3('Your settings:'),
                 h4('You entered the following Omega cutoff value:'),
                 verbatimTextOutput("oOmega"),
